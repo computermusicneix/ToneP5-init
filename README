@@ -1,0 +1,76 @@
+
+w to install and setup a Node.js/Express for serve
+static files: (Tone.js and P5.js example)
+
+Android:
+
+1.  install termux from fdroid.
+    
+2. $ apt update && apt upgrade
+3. $ apt install coreutils 
+4. $ apt install vim
+5. $ apt install nodejs
+
+6. $ termux-setup-storage
+
+Linux:
+
+$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+$ sudo apt-get install vim
+
+---------------------------------------------------------------------------------
+
+Create a project: (named p5tone-init)
+
+$ npm install express-generator -g
+
+$ express --view=pug p5tone-init
+
+
+change directory:
+     $ cd p5tone-init
+
+   install dependencies:
+     $ npm install
+
+   run the app:
+     $ DEBUG=p5tone-init:* npm start
+
+Now you can view a basic express page in your navigator on: http://localhost:3000/
+
+----------------------------------------------------------------------------------
+
+Install nodemon for view changes without restart the server:
+
+cd p5tone-init
+npm install --save-dev nodemon
+
+vim package.json
+
+add this line on scripts section:
+
+"devstart": "nodemon ./bin/www"
+  
+Launch with:
+
+DEBUG=p5tone-init:* npm run devstart
+
+-----------------------------------------------------------------------------------
+
+Server static files:
+
+Add this line on app.js
+
+app.use(express.static('public'));
+
+Add the file on /public_example to p5tone-init/public
+
+Try:
+
+"devstart": "nodemon ./bin/www"
+
+Now you can view a black canvas in your navigator on: http://localhost:3000/
+Click, listen, watch and enjoy ; )
+
+
